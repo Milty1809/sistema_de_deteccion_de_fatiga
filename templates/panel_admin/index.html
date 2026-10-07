@@ -1,0 +1,481 @@
+    <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Panel de administración</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/panel_admin.css') }}">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <h1>Panel de administración</h1>
+        <span>Usuario: Administrador</span>
+    </header>
+
+    <div class="layout">
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main>
+
+            <!-- GESTIÓN DE CONDUCTORES -->
+            <section id="conductores" class="activa">
+                <h2>Gestión de conductores</h2>
+                <p class="sub">
+                    Registra y administra a los conductores.
+                </p>
+
+                <label>Nombre</label>
+                <input type="text" placeholder="Ingresa nombre">
+
+                <label>Licencia</label>
+                <input type="text" placeholder="Ingresa licencia">
+
+                <label>Teléfono</label>
+                <input type="text" placeholder="Ingresa teléfono">
+
+                <button class="btn">
+                    Guardar conductor
+                </button>
+
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Licencia</th>
+                        <th>Estado</th>
+                    </tr>
+
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>L-1020</td>
+                        <td>
+                            <span class="estado">Activo</span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <!-- GESTIÓN DE VEHÍCULOS -->
+            <section id="vehiculos">
+                <h2>Gestión de vehículos</h2>
+                <p class="sub">
+                    Registra y administra los taxis.
+                </p>
+
+                <label>Placa</label>
+                <input type="text" placeholder="Ingresa placa">
+
+                <label>Modelo</label>
+                <input type="text" placeholder="Ingresa modelo">
+
+                <button class="btn">
+                    Guardar vehículo
+                </button>
+
+                <table>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Modelo</th>
+                        <th>Estado</th>
+                    </tr>
+
+                    <tr>
+                        <td>1234-ABC</td>
+                        <td>Toyota Yaris</td>
+                        <td>
+                            <span class="estado">Activo</span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <!-- CONSULTA DE SERVICIOS -->
+            <section id="servicios">
+                <h2>Consulta de servicios</h2>
+                <p class="sub">
+                    Historial de servicios realizados.
+                </p>
+
+                <table>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Conductor</th>
+                        <th>Estado</th>
+                    </tr>
+
+                    <tr>
+                        <td>María Rojas</td>
+                        <td>Juan Pérez</td>
+                        <td>
+                            <span class="estado">Activo</span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <!-- ALERTAS DE SOMNOLENCIA -->
+            <section id="alertas">
+                <h2>Consulta de alertas de somnolencia</h2>
+                <p class="sub">
+                    Alertas registradas por el sistema.
+                </p>
+
+                <table>
+                    <tr>
+                        <th>Conductor</th>
+                        <th>Fecha</th>
+                        <th>Nivel</th>
+                    </tr>
+
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>05/10/2026 02:14</td>
+                        <td>
+                            <span class="estado alerta">Alerta</span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <!-- REGISTRO Y BÚSQUEDA DE CLIENTES -->
+            <section id="clientes">
+                <h2>Registro y búsqueda de clientes</h2>
+                <p class="sub">
+                    Busca o registra un cliente.
+                </p>
+
+                <label>Buscar cliente</label>
+                <input type="text" placeholder="Nombre o teléfono">
+
+                <label>Nombre</label>
+                <input type="text" placeholder="Ingresa nombre">
+
+                <label>Teléfono</label>
+                <input type="text" placeholder="Ingresa teléfono">
+
+                <label>Dirección</label>
+                <input type="text" placeholder="Ingresa dirección">
+
+                <button class="btn">
+                    Registrar cliente
+                </button>
+            </section>
+
+
+            <!-- ATENCIÓN DE LLAMADAS -->
+            <section id="llamadas">
+                <h2>Atención de llamadas</h2>
+                <p class="sub">
+                    Registra las llamadas entrantes.
+                </p>
+
+                <label>Número de teléfono</label>
+                <input type="text" placeholder="Ingresa número de teléfono">
+
+                <label>Motivo</label>
+                <input type="text" placeholder="Ingresa motivo">
+
+                <button class="btn">
+                    Registrar llamada
+                </button>
+            </section>
+
+
+            <!-- REGISTRO DE SOLICITUDES -->
+            <section id="solicitudes">
+                <h2>Registro de solicitudes de taxi</h2>
+                <p class="sub">
+                    Crea una nueva solicitud.
+                </p>
+
+                <label>Cliente</label>
+                <input type="text" placeholder="Ingresa cliente">
+
+                <label>Dirección de recogida</label>
+                <input type="text" placeholder="Ingresa dirección de recogida">
+
+                <label>Destino</label>
+                <input type="text" placeholder="Ingresa destino">
+
+                <button class="btn">
+                    Registrar solicitud
+                </button>
+            </section>
+
+
+            <!-- ASIGNACIÓN DE CONDUCTORES -->
+            <section id="asignacion">
+                <h2>Asignación de conductores</h2>
+                <p class="sub">
+                    Asigna un conductor a una solicitud.
+                </p>
+
+                <label>Solicitud</label>
+
+                <select>
+                    <option>Solicitud #001</option>
+                </select>
+
+                <label>Conductor</label>
+
+                <select>
+                    <option>Juan Pérez</option>
+                </select>
+
+                <button class="btn">
+                    Asignar conductor
+                </button>
+            </section>
+
+
+            <!-- DETECCIÓN DE SOMNOLENCIA -->
+            <section id="deteccion">
+                <h2>Detección de somnolencia</h2>
+                <p class="sub">
+                    Monitoreo en tiempo real.
+                </p>
+
+                <div class="camara">
+                    Cámara del conductor
+                </div>
+
+                <div class="metricas">
+
+                    <div>
+                        <b>0</b>
+                        Parpadeos
+                    </div>
+
+                    <div>
+                        <b>0</b>
+                        Bostezos
+                    </div>
+
+                    <div>
+                        <b>Normal</b>
+                        Ojos
+                    </div>
+
+                </div>
+
+                <button class="btn">
+                    Iniciar detección
+                </button>
+            </section>
+
+
+            <!-- ANÁLISIS DE OJOS -->
+            <section id="analisis">
+                <h2>Análisis de ojos, parpadeos y bostezos</h2>
+                <p class="sub">
+                    Indicadores del conductor.
+                </p>
+
+                <table>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Valor</th>
+                        <th>Límite</th>
+                    </tr>
+
+                    <tr>
+                        <td>Ojos cerrados (seg)</td>
+                        <td>0</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <td>Parpadeos por minuto</td>
+                        <td>0</td>
+                        <td>25</td>
+                    </tr>
+
+                    <tr>
+                        <td>Bostezos</td>
+                        <td>0</td>
+                        <td>3</td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <!-- ALERTAS SONORAS -->
+            <section id="sonora">
+                <h2>Alertas sonoras</h2>
+                <p class="sub">
+                    Configura el sonido de aviso.
+                </p>
+
+                <label>Sonido</label>
+
+                <select>
+                    <option>Alarma fuerte</option>
+                    <option>Alarma suave</option>
+                </select>
+
+                <label>Volumen</label>
+
+                <input type="range">
+
+                <button class="btn">
+                    Probar alerta
+                </button>
+            </section>
+
+
+            <!-- REGISTRO DE ALERTAS -->
+            <section id="registro">
+                <h2>Registro de alertas</h2>
+                <p class="sub">
+                    Alertas generadas en este turno.
+                </p>
+
+                <table>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                    </tr>
+
+                    <tr>
+                        <td>02:14</td>
+                        <td>Ojos cerrados</td>
+                        <td>
+                            <span class="estado alerta">Alerta</span>
+                        </td>
+                    </tr>
+                </table>
+            </section>
+
+
+            <!-- NOTIFICACIÓN AL OPERADOR -->
+            <section id="notificacion">
+                <h2>Notificación al operador</h2>
+                <p class="sub">
+                    Define el límite para avisar al operador.
+                </p>
+
+                <label>Límite de alertas</label>
+
+                <input type="number" value="3">
+
+                <button class="btn">
+                    Guardar límite
+                </button>
+
+                <button
+                    class="btn"
+                    style="background:#b91c1c">
+                    Notificar al operador
+                </button>
+            </section>
+
+        </main>
+
+
+        <!-- MENÚ LATERAL -->
+        <aside>
+
+            <h3>Funciones</h3>
+
+            <button
+                data-s="conductores"
+                class="activa">
+                Gestión de conductores
+            </button>
+
+            <button data-s="vehiculos">
+                Gestión de vehículos
+            </button>
+
+            <button data-s="servicios">
+                Consulta de servicios
+            </button>
+
+            <button data-s="alertas">
+                Consulta de alertas de somnolencia
+            </button>
+
+            <button data-s="clientes">
+                Registro y búsqueda de clientes
+            </button>
+
+            <button data-s="llamadas">
+                Atención de llamadas
+            </button>
+
+            <button data-s="solicitudes">
+                Registro de solicitudes de taxi
+            </button>
+
+            <button data-s="asignacion">
+                Asignación de conductores
+            </button>
+
+            <button data-s="deteccion">
+                Detección de somnolencia
+            </button>
+
+            <button data-s="analisis">
+                Análisis de ojos, parpadeos y bostezos
+            </button>
+
+            <button data-s="sonora">
+                Alertas sonoras
+            </button>
+
+            <button data-s="registro">
+                Registro de alertas
+            </button>
+
+            <button data-s="notificacion">
+                Notificación al operador
+            </button>
+
+        </aside>
+
+    </div>
+
+
+    <!-- JAVASCRIPT PARA CAMBIAR DE SECCIÓN -->
+    <script>
+
+        document
+            .querySelectorAll("aside button")
+            .forEach(boton => {
+
+                boton.onclick = () => {
+
+                    // Quitar clase activa de todos los elementos
+                    document
+                        .querySelectorAll(".activa")
+                        .forEach(elemento => {
+                            elemento.classList.remove("activa");
+                        });
+
+                    // Activar botón seleccionado
+                    boton.classList.add("activa");
+
+                    // Activar sección correspondiente
+                    document
+                        .getElementById(boton.dataset.s)
+                        .classList.add("activa");
+                };
+
+            });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Panel de seguridad</title>
+
+<link rel="stylesheet"
+          href="{{ url_for('static', filename='css/panel_conductor.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
+
+    <header>
+        <h1>Panel de seguridad</h1>
+        <span>Usuario: Conductor</span>
+    </header>
+
+
+    <!-- =========================
+         ESTRUCTURA PRINCIPAL
+    ========================== -->
+
+    <div class="layout">
+
+        <!-- =========================
+             CONTENIDO PRINCIPAL
+        ========================== -->
+
+        <main>
+
+            <!-- DETECCIÓN DE SOMNOLENCIA -->
+
+            <section id="deteccion" class="activa">
+
+                <h2>Detección de somnolencia</h2>
+
+                <p class="sub">
+                    Monitoreo en tiempo real.
+                </p>
+
+                <div class="camara">
+                    Cámara del conductor
+                </div>
+
+                <div class="metricas">
+
+                    <div>
+                        <b>0</b>
+                        Parpadeos
+                    </div>
+
+                    <div>
+                        <b>0</b>
+                        Bostezos
+                    </div>
+
+                    <div>
+                        <b>Normal</b>
+                        Ojos
+                    </div>
+
+                </div>
+
+                <button class="btn">
+                    Iniciar detección
+                </button>
+
+            </section>
+
+
+            <!-- ANÁLISIS DE OJOS, PARPADEOS Y BOSTEZOS -->
+
+            <section id="analisis">
+
+                <h2>
+                    Análisis de ojos, parpadeos y bostezos
+                </h2>
+
+                <p class="sub">
+                    Indicadores del conductor.
+                </p>
+
+                <table>
+
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Valor</th>
+                        <th>Límite</th>
+                    </tr>
+
+                    <tr>
+                        <td>Ojos cerrados (seg)</td>
+                        <td>0</td>
+                        <td>2</td>
+                    </tr>
+
+                    <tr>
+                        <td>Parpadeos por minuto</td>
+                        <td>0</td>
+                        <td>25</td>
+                    </tr>
+
+                    <tr>
+                        <td>Bostezos</td>
+                        <td>0</td>
+                        <td>3</td>
+                    </tr>
+
+                </table>
+
+            </section>
+
+
+            <!-- ALERTAS SONORAS -->
+
+            <section id="sonora">
+
+                <h2>Alertas sonoras</h2>
+
+                <p class="sub">
+                    Configura el sonido de aviso.
+                </p>
+
+                <label>Sonido</label>
+
+                <select>
+                    <option>Alarma fuerte</option>
+                    <option>Alarma suave</option>
+                </select>
+
+                <label>Volumen</label>
+
+                <input type="range">
+
+                <button class="btn">
+                    Probar alerta
+                </button>
+
+            </section>
+
+
+            <!-- REGISTRO DE ALERTAS -->
+
+            <section id="registro">
+
+                <h2>Registro de alertas</h2>
+
+                <p class="sub">
+                    Alertas generadas en este turno.
+                </p>
+
+                <table>
+
+                    <tr>
+                        <th>Hora</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                    </tr>
+
+                    <tr>
+                        <td>02:14</td>
+                        <td>Ojos cerrados</td>
+                        <td>
+                            <span class="estado alerta">
+                                Alerta
+                            </span>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </section>
+
+
+            <!-- NOTIFICACIÓN AL OPERADOR -->
+
+            <section id="notificacion">
+
+                <h2>Notificación al operador</h2>
+
+                <p class="sub">
+                    Define el límite para avisar al operador.
+                </p>
+
+                <label>Límite de alertas</label>
+
+                <input type="number" value="3">
+
+                <button class="btn">
+                    Guardar límite
+                </button>
+
+                <button
+                    class="btn"
+                    style="background:#b91c1c"
+                >
+                    Notificar al operador
+                </button>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================
+             MENÚ LATERAL
+        ========================== -->
+
+        <aside>
+
+            <h3>Funciones</h3>
+
+            <button
+                data-s="deteccion"
+                class="activa"
+            >
+                Detección de somnolencia
+            </button>
+
+            <button data-s="analisis">
+                Análisis de ojos, parpadeos y bostezos
+            </button>
+
+            <button data-s="sonora">
+                Alertas sonoras
+            </button>
+
+            <button data-s="registro">
+                Registro de alertas
+            </button>
+
+            <button data-s="notificacion">
+                Notificación al operador
+            </button>
+
+        </aside>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        document
+            .querySelectorAll("aside button")
+            .forEach(boton => {
+
+                boton.onclick = () => {
+
+                    document
+                        .querySelectorAll(".activa")
+                        .forEach(elemento => {
+                            elemento.classList.remove("activa");
+                        });
+
+                    boton.classList.add("activa");
+
+                    document
+                        .getElementById(boton.dataset.s)
+                        .classList.add("activa");
+                };
+
+            });
+
+    </script>
+
+</body>
+
+</html>

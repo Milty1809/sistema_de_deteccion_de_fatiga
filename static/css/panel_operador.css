@@ -1,0 +1,268 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #0f1b3d, #1e3a8a);
+    color: #1e293b;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    padding: 18px 28px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Times New Roman', serif;
+    font-size: 26px;
+}
+
+header span {
+    background: rgba(255, 255, 255, .15);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+
+/* =========================
+   ESTRUCTURA PRINCIPAL
+========================= */
+
+.layout {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    padding: 0 28px 28px;
+    min-height: 0;
+}
+
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+main {
+    flex: 1;
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+section {
+    display: none;
+}
+
+section.activa {
+    display: block;
+}
+
+
+/* =========================
+   TÍTULOS Y TEXTOS
+========================= */
+
+h2 {
+    font-family: 'Times New Roman', serif;
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+p.sub {
+    color: #64748b;
+    font-family: 'Times New Roman', serif;
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   FORMULARIOS
+========================= */
+
+label {
+    display: block;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    margin: 14px 0 6px;
+}
+
+input,
+select {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn {
+    margin-top: 20px;
+    padding: 14px 28px;
+    border: 0;
+    border-radius: 10px;
+    background: #2563eb;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   TABLAS
+========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 14px;
+}
+
+th {
+    color: #64748b;
+}
+
+
+/* =========================
+   ESTADOS
+========================= */
+
+.estado {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 13px;
+}
+
+.alerta {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================
+   CÁMARA
+========================= */
+
+.camara {
+    height: 260px;
+    max-width: 480px;
+    border-radius: 14px;
+    background: #0f1b3d;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+
+/* =========================
+   MÉTRICAS
+========================= */
+
+.metricas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.metricas div {
+    flex: 1;
+    min-width: 120px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.metricas b {
+    display: block;
+    font-size: 26px;
+    color: #2563eb;
+}
+
+
+/* =========================
+   BARRA LATERAL
+========================= */
+
+aside {
+    width: 260px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 16px;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+}
+
+aside h3 {
+    font-family: 'Times New Roman', serif;
+    margin: 6px 8px 12px;
+}
+
+aside button {
+    width: 100%;
+    text-align: left;
+    padding: 13px 14px;
+    margin-bottom: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    color: #1e293b;
+}
+
+aside button:hover {
+    background: #eff6ff;
+}
+
+aside button.activa {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Panel del operador</title>
+
+<link rel="stylesheet"
+          href="{{ url_for('static', filename='css/panel_admin.css') }}">
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
+
+    <header>
+        <h1>Panel del operador</h1>
+        <span>Usuario: Operador</span>
+    </header>
+
+
+    <!-- =========================
+         ESTRUCTURA PRINCIPAL
+    ========================== -->
+
+    <div class="layout">
+
+        <!-- =========================
+             CONTENIDO PRINCIPAL
+        ========================== -->
+
+        <main>
+
+            <!-- REGISTRO Y BÚSQUEDA DE CLIENTES -->
+
+            <section id="clientes" class="activa">
+
+                <h2>Registro y búsqueda de clientes</h2>
+
+                <p class="sub">
+                    Busca o registra un cliente.
+                </p>
+
+                <label>Buscar cliente</label>
+                <input placeholder="Nombre o teléfono">
+
+                <label>Nombre</label>
+                <input placeholder="Ingresa nombre">
+
+                <label>Teléfono</label>
+                <input placeholder="Ingresa teléfono">
+
+                <label>Dirección</label>
+                <input placeholder="Ingresa dirección">
+
+                <button class="btn">
+                    Registrar cliente
+                </button>
+
+            </section>
+
+
+            <!-- ATENCIÓN DE LLAMADAS -->
+
+            <section id="llamadas">
+
+                <h2>Atención de llamadas</h2>
+
+                <p class="sub">
+                    Registra las llamadas entrantes.
+                </p>
+
+                <label>Número de teléfono</label>
+                <input placeholder="Ingresa número de teléfono">
+
+                <label>Motivo</label>
+                <input placeholder="Ingresa motivo">
+
+                <button class="btn">
+                    Registrar llamada
+                </button>
+
+            </section>
+
+
+            <!-- REGISTRO DE SOLICITUDES -->
+
+            <section id="solicitudes">
+
+                <h2>Registro de solicitudes de taxi</h2>
+
+                <p class="sub">
+                    Crea una nueva solicitud.
+                </p>
+
+                <label>Cliente</label>
+                <input placeholder="Ingresa cliente">
+
+                <label>Dirección de recogida</label>
+                <input placeholder="Ingresa dirección de recogida">
+
+                <label>Destino</label>
+                <input placeholder="Ingresa destino">
+
+                <button class="btn">
+                    Registrar solicitud
+                </button>
+
+            </section>
+
+
+            <!-- ASIGNACIÓN DE CONDUCTORES -->
+
+            <section id="asignacion">
+
+                <h2>Asignación de conductores</h2>
+
+                <p class="sub">
+                    Asigna un conductor a una solicitud.
+                </p>
+
+                <label>Solicitud</label>
+
+                <select>
+                    <option>Solicitud #001</option>
+                </select>
+
+                <label>Conductor</label>
+
+                <select>
+                    <option>Juan Pérez</option>
+                </select>
+
+                <button class="btn">
+                    Asignar conductor
+                </button>
+
+            </section>
+
+
+            <!-- CONSULTA DE SERVICIOS -->
+
+            <section id="servicios">
+
+                <h2>Consulta de servicios</h2>
+
+                <p class="sub">
+                    Historial de servicios realizados.
+                </p>
+
+                <table>
+
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Conductor</th>
+                        <th>Estado</th>
+                    </tr>
+
+                    <tr>
+                        <td>María Rojas</td>
+                        <td>Juan Pérez</td>
+                        <td>
+                            <span class="estado">
+                                Activo
+                            </span>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </section>
+
+
+            <!-- CONSULTA DE ALERTAS -->
+
+            <section id="alertas">
+
+                <h2>Consulta de alertas de somnolencia</h2>
+
+                <p class="sub">
+                    Alertas registradas por el sistema.
+                </p>
+
+                <table>
+
+                    <tr>
+                        <th>Conductor</th>
+                        <th>Fecha</th>
+                        <th>Nivel</th>
+                    </tr>
+
+                    <tr>
+                        <td>Juan Pérez</td>
+                        <td>05/10/2026 02:14</td>
+                        <td>
+                            <span class="estado alerta">
+                                Alerta
+                            </span>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================
+             MENÚ LATERAL
+        ========================== -->
+
+        <aside>
+
+            <h3>Funciones</h3>
+
+            <button data-s="clientes" class="activa">
+                Registro y búsqueda de clientes
+            </button>
+
+            <button data-s="llamadas">
+                Atención de llamadas
+            </button>
+
+            <button data-s="solicitudes">
+                Registro de solicitudes de taxi
+            </button>
+
+            <button data-s="asignacion">
+                Asignación de conductores
+            </button>
+
+            <button data-s="servicios">
+                Consulta de servicios
+            </button>
+
+            <button data-s="alertas">
+                Consulta de alertas de somnolencia
+            </button>
+
+        </aside>
+
+    </div>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        document
+            .querySelectorAll("aside button")
+            .forEach(boton => {
+
+                boton.onclick = () => {
+
+                    document
+                        .querySelectorAll(".activa")
+                        .forEach(elemento => {
+                            elemento.classList.remove("activa");
+                        });
+
+                    boton.classList.add("activa");
+
+                    document
+                        .getElementById(boton.dataset.s)
+                        .classList.add("activa");
+                };
+
+            });
+
+    </script>
+
+</body>
+
+</html>
